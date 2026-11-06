@@ -1,0 +1,182 @@
+{
+  "version": 2,
+  "contextMessages": [
+    {
+      "id": "00341ef7-5f66-4b17-8dfa-d5023afc0231",
+      "role": "user",
+      "content": "Monte a a estrutura inicial do sistema com interface em react HTTP / upload, e nodejs Fastify/Express, API, fila (BullMQ/Redis), que trabalha com backend e modelos ONNX e onnxruntime para manipular imagens, restauração de fotos antigas, remover os rasgos, realçar cores fracas e desbotadas, colorimento de fotos em preto e branco e, aumento da nitidez. FastAPI + onnxruntime + OpenCV): worker de inferência, pipeline clássico, Proteção contra Overflows de branco, Máscara Híbrida. Armazenamento do resultado,\n",
+      "promptContext": {
+        "id": "5fbc3e48-e6a6-4e59-893d-d8e705cfeba2",
+        "userMessageId": "00341ef7-5f66-4b17-8dfa-d5023afc0231"
+      },
+      "timestamp": 1793293519224
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json\n{\n  \"name\": \"todo---get_items\",\n  \"arguments\": {}\n}\n```"
+        }
+      ],
+      "id": "236d6c20-d1d0-4ff6-b5a7-86f0baa2ccfc",
+      "usageReport": {
+        "model": "ollama/qwen2.5-coder:latest",
+        "sentTokens": 2050,
+        "receivedTokens": 22,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0,
+        "messageCost": 0,
+        "agentTotalCost": 0
+      },
+      "promptContext": {
+        "id": "5fbc3e48-e6a6-4e59-893d-d8e705cfeba2",
+        "userMessageId": "00341ef7-5f66-4b17-8dfa-d5023afc0231"
+      },
+      "timestamp": 1793295087483
+    },
+    {
+      "id": "5e122677-94c4-4f36-9193-053ed29924fe",
+      "role": "user",
+      "content": "Qual foi a tarefa que você realizou? você criou arquivos na pasta ou no github? C:\\restore-photo-onnx",
+      "promptContext": {
+        "id": "9a1186cb-8538-4f7c-9614-bf508a72b5da",
+        "userMessageId": "5e122677-94c4-4f36-9193-053ed29924fe"
+      },
+      "timestamp": 1793296318492
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"name\": \"helpers---no_such_tool\", \"arguments\": {\"toolName\": \"file-system\", \"availableTools\": [\"power---semantic_search\", \"power---bash\", \"power---fetch\", \"todo---set_items\", \"todo---get_items\", \"todo---update_item_completion\", \"todo---clear_items\", \"memory---store_memory\", \"memory---retrieve_memory\", \"skills---activate_skill\", \"helpers---no_such_tool\", \"helpers---invalid_tool_arguments\"]}}"
+        }
+      ],
+      "id": "73c0c826-ceb9-4295-ad47-4a04f537daec",
+      "usageReport": {
+        "model": "ollama/qwen2.5-coder:latest",
+        "sentTokens": 2050,
+        "receivedTokens": 102,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0,
+        "messageCost": 0,
+        "agentTotalCost": 0
+      },
+      "promptContext": {
+        "id": "9a1186cb-8538-4f7c-9614-bf508a72b5da",
+        "userMessageId": "5e122677-94c4-4f36-9193-053ed29924fe"
+      },
+      "timestamp": 1793296984136
+    },
+    {
+      "id": "9668cfc4-8ff5-4e69-a744-9d1f04b983d6",
+      "role": "user",
+      "content": "Me ajude a criar um sistema com interface em react e backend em python que faz restauração de fotos",
+      "promptContext": {
+        "id": "e59c0382-56ee-4abe-9b84-1dc0787b9761",
+        "userMessageId": "9668cfc4-8ff5-4e69-a744-9d1f04b983d6"
+      },
+      "timestamp": 1793297618031
+    },
+    {
+      "id": "35d5a58e-0b8c-49e0-a755-b8afe578b9a5",
+      "role": "user",
+      "content": "Me ajude a criar um sistema com interface em react e backend em python que faz restauração de fotos",
+      "promptContext": {
+        "id": "bf7935b7-4c6b-4249-bbe7-8488ebe6777c",
+        "userMessageId": "35d5a58e-0b8c-49e0-a755-b8afe578b9a5"
+      },
+      "timestamp": 1793297655538
+    },
+    {
+      "id": "b69ee15b-3b2e-456f-a73a-9b7792d8ec71",
+      "role": "user",
+      "content": "Me ajude a criar um sistema com interface em react e backend em python que faz restauração de fotos",
+      "promptContext": {
+        "id": "525921c2-d2ab-430b-b9cf-116c6560a61f",
+        "userMessageId": "b69ee15b-3b2e-456f-a73a-9b7792d8ec71"
+      },
+      "timestamp": 1793297703993
+    },
+    {
+      "id": "47748451-9c94-4c27-97a7-52e5e612be3a",
+      "role": "user",
+      "content": "Me ajude a criar um sistema com interface em react e backend em python que faz restauração de fotos",
+      "promptContext": {
+        "id": "4f2292f2-2b71-441c-8462-7784cf911cde",
+        "userMessageId": "47748451-9c94-4c27-97a7-52e5e612be3a"
+      },
+      "timestamp": 1793297735371
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"name\": \"extension-creator\",\n  \"arguments\": {\n    \"metadata\": {\n      \"name\": \"PhotoRestoreExtension\",\n      \"description\": \"An extension for restoring photos using a Python backend.\"\n    },\n    \"tools\": [\n      {\n        \"name\": \"photo-restore-tool\",\n        \"description\": \"Tool to handle photo restoration tasks.\",\n        \"implementation\": {\n          \"language\": \"python\",\n          \"script\": \"photo_restore_tool.py\"\n        }\n      }\n    ],\n    \"events\": [\n      {\n        \"name\": \"photo-restored\",\n        \"description\": \"Event triggered when a photo is successfully restored.\"\n      }\n    ]\n  }\n}"
+        }
+      ],
+      "id": "58e7329d-2510-42ff-a3ac-b08fb4eb06c4",
+      "usageReport": {
+        "model": "ollama/qwen2.5-coder:latest",
+        "sentTokens": 2050,
+        "receivedTokens": 141,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0,
+        "messageCost": 0,
+        "agentTotalCost": 0
+      },
+      "promptContext": {
+        "id": "4f2292f2-2b71-441c-8462-7784cf911cde",
+        "userMessageId": "47748451-9c94-4c27-97a7-52e5e612be3a"
+      },
+      "timestamp": 1793298936119
+    },
+    {
+      "id": "e93ac8fc-1e9a-4030-bbd5-ad15fd6ac9e0",
+      "role": "user",
+      "content": "Monte os arquivos em react e python do sistema photo-restore-tool para restauração de fotos, com interface em react HTTP / upload, e nodejs Fastify/Express, API, fila (BullMQ/Redis), que trabalha com backend e modelos ONNX e onnxruntime para manipular imagens, restauração de fotos antigas, remover os rasgos, realçar cores fracas e desbotadas, colorimento de fotos em preto e branco e, aumento da nitidez. FastAPI + onnxruntime + OpenCV): worker de inferência, pipeline clássico, Proteção contra Overflows de branco, Máscara Híbrida. Armazenamento do resultado,",
+      "promptContext": {
+        "id": "49c25830-b895-4c2f-a109-83828430a2f3",
+        "userMessageId": "e93ac8fc-1e9a-4030-bbd5-ad15fd6ac9e0"
+      },
+      "timestamp": 1793299378628
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json\n{\n  \"name\": \"semantic_search\",\n  \"arguments\": {\n    \"query\": \"React Python photo-restore-tool image restoration interface HTTP upload Fastify/Express API queue BullMQ Redis backend ONNX onnxruntime image processing old photo restoration wrinkle removal color enhancement black and white coloring image sharpness increase worker inference classic pipeline white overflow protection hybrid mask\",\n    \"language\": \"javascript\"\n  }\n}\n```"
+        }
+      ],
+      "id": "c9b8d4c7-bb4e-4eb0-bcb1-997acf0dfde8",
+      "usageReport": {
+        "model": "ollama/qwen2.5-coder:latest",
+        "sentTokens": 2050,
+        "receivedTokens": 88,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0,
+        "messageCost": 0,
+        "agentTotalCost": 0
+      },
+      "promptContext": {
+        "id": "49c25830-b895-4c2f-a109-83828430a2f3",
+        "userMessageId": "e93ac8fc-1e9a-4030-bbd5-ad15fd6ac9e0"
+      },
+      "timestamp": 1793300329357
+    },
+    {
+      "id": "94a5488e-6522-4106-9b4f-99504eabbb0d",
+      "role": "user",
+      "content": "Aider, crie apenas o crie o arquivo pipeline.py em Python com o OpenCV na pasta worker-inference/app/, que contém o pipeline clássico",
+      "promptContext": {
+        "id": "32324b03-bff5-4722-9c89-289938e27047",
+        "userMessageId": "94a5488e-6522-4106-9b4f-99504eabbb0d"
+      },
+      "timestamp": 1793301973053
+    }
+  ],
+  "contextFiles": []
+}

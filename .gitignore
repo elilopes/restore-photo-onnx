@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+storage/*
+!storage/.gitkeep
+models/*
+!models/.gitkeep
+*.part
+.DS_Store
+Thumbs.db

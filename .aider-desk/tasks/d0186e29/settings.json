@@ -1,0 +1,25 @@
+{
+  "id": "d0186e29",
+  "baseDir": "C:\\restore-photo-onnx",
+  "name": "\"Set up initial system structure with React frontend, Node.js backend, API, BullMQ/Redis queue, ONNX/ONNXRuntime image manipulation, photo restoration, color enhancement, black and white colorization, image sharpening, overflow protection, hybrid mask, and result storage.\"",
+  "archived": false,
+  "aiderTotalCost": 0,
+  "agentTotalCost": 0,
+  "mainModel": "",
+  "currentMode": "agent",
+  "weakModelLocked": false,
+  "parentId": null,
+  "lastAgentProviderMetadata": {
+    "ollama": {}
+  },
+  "agentProfileId": "default",
+  "provider": "ollama",
+  "model": "qwen2.5-coder:latest",
+  "workingMode": "local",
+  "createdAt": "2026-10-29T17:05:12.428Z",
+  "updatedAt": "2026-10-29T21:19:57.860Z",
+  "startedAt": "2026-10-29T20:47:25.619Z",
+  "state": "INTERRUPTED",
+  "completedAt": "2026-10-29T19:04:01.922Z",
+  "autonomyMode": "autonomous"
+}

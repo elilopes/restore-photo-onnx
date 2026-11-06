@@ -1,0 +1,86 @@
+name: restore-photo
+
+x-storage: &storage
+  ./storage:/data/storage
+
+services:
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  # Executa UMA vez: docker compose --profile setup run --rm models
+  models:
+    profiles: ["setup"]
+    build: ./worker
+    command: ["python", "/scripts/download_models.py", "--dir", "/models"]
+    volumes:
+      - ./models:/models
+      - ./scripts:/scripts:ro
+
+  worker-py:
+    build: ./worker
+    environment:
+      STORAGE_DIR: /data/storage
+      MODELS_DIR: /models
+      ORT_PROVIDERS: ${ORT_PROVIDERS:-CPUExecutionProvider}
+      MAX_CONCURRENCY: ${MAX_CONCURRENCY:-1}
+    volumes:
+      - *storage
+      - ./models:/models:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
+    restart: unless-stopped
+
+  api:
+    build: ./api
+    environment:
+      PORT: "3001"
+      HOST: 0.0.0.0
+      REDIS_URL: redis://redis:6379
+      WORKER_URL: http://worker-py:8000
+      STORAGE_DIR: /data/storage
+      CORS_ORIGIN: http://localhost:${WEB_PORT:-8080}
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-25}
+      RETENTION_HOURS: ${RETENTION_HOURS:-24}
+    volumes:
+      - *storage
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  queue-worker:
+    build: ./api
+    command: ["node", "dist/worker.js"]
+    environment:
+      REDIS_URL: redis://redis:6379
+      WORKER_URL: http://worker-py:8000
+      STORAGE_DIR: /data/storage
+      QUEUE_CONCURRENCY: ${QUEUE_CONCURRENCY:-1}
+      RETENTION_HOURS: ${RETENTION_HOURS:-24}
+    volumes:
+      - *storage
+    depends_on:
+      redis:
+        condition: service_healthy
+      worker-py:
+        condition: service_healthy
+    restart: unless-stopped
+
+  web:
+    build: ./web
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    depends_on:
+      - api
+    restart: unless-stopped
